@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline</title>
+    <style>
+        /* Reset some default styles */
+        body, h2, p { margin: 0; padding: 0; }
+        
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        
+        /* Main image container */
+        .main-image-container {
+            position: relative;
+            height: 600px; /* Set a fixed height for the carousel */
+            overflow: hidden; /* Hide overflow to create a carousel effect */
+            margin-bottom: 20px;
+        }
+
+        .main-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0; /* Initially hide all images */
+            transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+        }
+
+        .main-image.active {
+            opacity: 1; /* Show the active image */
+        }
+        
+        /* Product boxes */
+        .product-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product-box {
+            position: relative; /* Allow positioning of overlay */
+            width: 300px;
+            margin: 20px;
+            background-color: #f88603;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .product-box img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product-overlay h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .product-button {
+            position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fd9104;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer; background-color: rgba(249, 96, 7, 0.786);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* Remove underline from link */
+            font-size: 1rem;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="main-image-container">
+        <img src="../page_3/p3-e.jpg" alt="Main Image" class="main-image active">
+        <img src="../page_3/p3-a.jpg" alt="Main Image" class="main-image">
+        <img src="../page_3/p3-c.jpg" alt="Main Image" class="main-image">
+        <img src="../page_3/p3-f.jpg" alt="Main Image" class="main-image">
+    </div>
+
+    <div class="product-boxes">
+        <div class="product-box">
+            <img src="../page_3/p3-b.jpg" alt="Product 1">
+            <div class="product-overlay">
+                <h2>Taking Off</h2>
+                <a href="https://www.erb.org/home/erb/zh/" class="product-button">Learn More</a>
+            </div>
+        </div>
+        <div class="product-box">
+            <img src="../page_3/p3-h.jpg" alt="Product 2">
+            <div class="product-overlay">
+                <h2>Skyline Lunch</h2>
+                <a href="https://www.erb.org/home/erb/zh/" class="product-button">Learn More</a>
+            </div>
+        </div>
+        <div class="product-box">
+            <img src="../page_3/p3-g.jpg" alt="Product 3">
+            <div class="product-overlay">
+                <h2>Cruising</h2>
+                <a href="https://www.erb.org/home/erb/zh/" class="product-button">Learn More</a>
+            </div>
+        </div>
+        <div class="product-box">
+            <img src="../page_3/p3-d.jpg" alt="Product 4">
+            <div class="product-overlay">
+                <h2>Landing</h2>
+                <a href="https://www.erb.org/home/erb/zh/" class="product-button">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.main-image');
+        let currentIndex = 0;
+
+        function changeImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(changeImage, 2000); // Change image every 3 seconds
+    </script>
+</body>
+</html>
