@@ -14,7 +14,7 @@ document.body.addEventListener("click", (event) => {
       isImageClicked = true;
     } else {
       // Redirect to Google
-      window.location.href = "https://www.google.com/";
+      // window.location.href = "https://www.google.com/";
     }
   } else {
     // Reset the enlarged image
