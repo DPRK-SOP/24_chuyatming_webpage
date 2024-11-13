@@ -12,31 +12,31 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
-            position: relative; /* Allow absolute positioning of video */
-            overflow: hidden; /* Prevent overflow caused by video */
+            position: relative;
+            overflow: hidden;
         }
 
         /* Background video */
         .background-video {
-            position: fixed; /* Fixed to cover the entire viewport */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Cover the entire viewport */
-            z-index: -1; /* Send video behind other content */
+            object-fit: cover;
+            z-index: -1;
         }
         
         /* Main image container */
         .main-image-container {
             position: relative;
-            height: 300px; /* Set a smaller height for the carousel */
-            overflow: hidden; /* Hide overflow to create a carousel effect */
-            margin: 20px auto; /* Center the carousel */
-            width: 80%; /* Set a width to make it smaller */
-            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            height: 300px;
+            overflow: hidden;
+            margin: 20px auto;
+            width: 80%;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .main-image {
@@ -46,12 +46,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0; /* Initially hide all images */
-            transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
         .main-image.active {
-            opacity: 1; /* Show the active image */
+            opacity: 1;
         }
         
         /* Product boxes */
@@ -59,22 +59,23 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            padding: 20px; /* Added padding */
         }
 
         .product-box {
-            position: relative; /* Allow positioning of overlay */
+            position: relative;
             width: 300px;
             margin: 10px;
-            background-color: none;
-            box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .product-box img {
             width: 100%;
             height: 300px;
             object-fit: cover;
+            loading: lazy; /* Lazy loading for images */
         }
 
         .product-overlay {
@@ -88,7 +89,7 @@
             justify-content: space-between;
             align-items: center;
             color: white;
-            background-color: rgba(0, 0, 0, 0.049); /* Semi-transparent background */
+            background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for better contrast */
             padding: 10px;
             text-align: center;
         }
@@ -99,71 +100,78 @@
         }
 
         .product-button {
-            position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #fd9104;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer; background-color: rgba(249, 96, 7, 0.786);
+            background-color: rgba(249, 96, 7, 0.786);
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 10px 20px;
             border: none;
-            border-radius: 0.25rem;
+            border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            text-decoration: none; /* Remove underline from link */
+            text-decoration: none;
             font-size: 1rem;
         }
 
         .product-button:hover {
-            background-color: rgba(249, 96, 7, 0.9); /* Darken on hover */
+            background-color: rgba(249, 96, 7, 0.9);
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .main-image-container {
+                height: 200px; /* Adjust height for smaller screens */
+            }
+
+            .product-box {
+                width: 90%; /* Full width on smaller screens */
+                margin: 10px 0; /* Adjust margin */
+            }
+
+            .product-overlay h2 {
+                font-size: 18px; /* Smaller font size on mobile */
+            }
         }
     </style>
 </head>
 <body>
     <!-- Background video -->
-    <video autoplay loop muted class="background-video">
-        <source src="../page_3/video-3.mp4" type="video/mp4"> <!-- Replace with your video path -->
+    <video autoplay loop muted class="background-video" loading="lazy">
+        <source src="../page_3/video-3.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
     <div class="main-image-container"> 
-      <img src="../page_3/p3-e.jpg" alt="Main Image" class="main-image active">
-        <img src="../page_3/p3-a.jpg" alt="Main Image" class="main-image">
-        <img src="../page_3/p3-c.jpg" alt="Main Image" class="main-image">
-        <img src="../page_3/p3-f.jpg" alt="Main Image" class="main-image">
+        <img src="../page_3/p3-e.jpg" alt="Skyline view 1" class="main-image active">
+        <img src="../page_3/p3-a.jpg" alt="Skyline view 2" class="main-image">
+        <img src="../page_3/p3-c.jpg" alt="Skyline view 3" class="main-image">
+        <img src="../page_3/p3-f.jpg" alt="Skyline view 4" class="main-image">
     </div>
 
     <div class="product-boxes">
         <div class="product-box">
-            <img src="../page_3/p3-b.jpg" alt="Product 1">
+            <img src="../page_3/p3-b.jpg" alt="Sunrise Taking Off">
             <div class="product-overlay">
                 <h2>Sunrise Taking Off</h2>
                 <a href="https://www.erb.org/home/erb/zh/" class="product-button">Learn More</a>
             </div>
         </div>
         <div class="product-box">
-            <img src="../page_3/p3-h.jpg" alt="Product 2">
+            <img src="../page_3/p3-h.jpg" alt="Dining In The Clouds">
             <div class="product-overlay">
                 <h2>Dining In The Clouds</h2>
                 <a href="https://www.erb.org/home/erb/zh/" class="product-button">Learn More</a>
             </div>
         </div>
         <div class="product-box">
-            <img src="../page_3/p3-g.jpg" alt="Product 3">
+            <img src="../page_3/p3-g.jpg" alt="Flying Over Ottomanian Airspace">
             <div class="product-overlay">
                 <h2>Flying Over Ottomanian Airspace</h2>
                 <a href="https://www.erb.org/home/erb/zh/" class="product-button">Learn More</a>
             </div>
         </div>
         <div class="product-box">
-            <img src="../page_3/p3-d.jpg" alt="Product 4">
+            <img src="../page_3/p3-d.jpg" alt="Stunning Sunset Descending">
             <div class="product-overlay">
-                <h2>Stunning Sunset Decending</h2>
+                <h2>Stunning Sunset Descending</h2>
                 <a href="https://www.erb.org/home/erb/zh/" class="product-button">Learn More</a>
             </div>
         </div>
