@@ -100,19 +100,28 @@
         }
 
         .product-button {
-            background-color: rgba(249, 96, 7, 0.786);
+            position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fd9104;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer; background-color: rgba(249, 96, 7, 0.786);
             color: white;
-            padding: 10px 20px;
+            padding: 0.5rem 1rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 0.25rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            text-decoration: none;
+            text-decoration: none; /* Remove underline from link */
             font-size: 1rem;
         }
 
         .product-button:hover {
-            background-color: rgba(249, 96, 7, 0.9);
+            background-color: rgba(249, 96, 7, 0.9); /* Darken on hover */
         }
 
         /* Media Queries for Responsiveness */
