@@ -36,29 +36,28 @@
 
         .content-overlay {
             position: absolute;
-            bottom: 5%; /* Adjusted to move the content higher */
+            bottom: 5%;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
             color: white;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             padding: 20px;
-            background: rgba(0, 0, 0, 0.5); /* Optional: background for better readability */
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 5px;
         }
 
         .content-overlay h1 {
-            font-size: 36px;
-            margin-bottom: 20px; /* Reduced margin to bring text closer to button */
+            font-size: 5vw; /* Responsive font size */
+            margin-bottom: 10px;
         }
 
         .content-overlay p {
-            font-size: 18px;
-            margin: 0 0 20px; /* Added margin for spacing above the button */
+            font-size: 3vw; /* Responsive font size */
+            margin: 0 0 20px;
         }
 
         .img-button {
-            position: relative; /* Changed from absolute to relative */
             background-color: rgba(249, 96, 7, 0.786);
             color: white;
             padding: 0.5rem 1rem;
@@ -68,19 +67,35 @@
             font-size: 1rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            display: inline-block; /* Make it an inline-block */
+        }
+
+        .img-button:hover {
+            background-color: rgba(0, 0, 0, 0.7); /* Add hover effect */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .content-overlay h1 {
+                font-size: 8vw; /* Larger text for smaller screens */
+            }
+
+            .content-overlay p {
+                font-size: 4vw; /* Larger text for smaller screens */
+            }
         }
     </style>
 </head>
 <body>
     <div class="background-container">
-        <img src="../page_1/p1-a.jpg" alt="Image 1" class="active">
-        <img src="../page_1/p1-b.jpg" alt="Image 2">
-        <img src="../page_1/p1-c.jpg" alt="Image 3">
-        <img src="../page_1/p1-d.jpg" alt="Image 4">
+        <img src="../page_1/p1-a.jpg" alt="A scenic view of a recreation vehicle in the Chilean landscape" class="active" loading="lazy">
+        <img src="../page_1/p1-b.jpg" alt="Camping setup in the desert with a motorbike" loading="lazy">
+        <img src="../page_1/p1-c.jpg" alt="Vibrant landscape with wild animals in Chile" loading="lazy">
+        <img src="../page_1/p1-d.jpg" alt="Off-road experience with a WW2 vintage Jeep" loading="lazy">
     </div>
 
     <div class="content-overlay">
-        <h1>Chasing Shadows Across in Chile</h1>
+        <h1>Chasing Shadows Across Chile</h1>
         <p id="image-description">Explore the beauty of recreation vehicle life</p>
         <a href="https://www.erb.org/home/erb/zh/" class="img-button">Read More</a>
     </div>
@@ -90,8 +105,8 @@
         const descriptions = [
             "Explore the beauty of recreation vehicle life",
             "Camping in the desert after a long day motorbike ride",
-            "Discover vibrant landscape and wild animals",
-            "Ultimate off-Road experiences with WW2 vintage Jeep"
+            "Discover vibrant landscapes and wild animals",
+            "Ultimate off-road experiences with a WW2 vintage Jeep"
         ];
         const descriptionElement = document.getElementById('image-description');
         let currentIndex = 0;
@@ -103,7 +118,7 @@
             descriptionElement.textContent = descriptions[currentIndex];
         }
 
-        setInterval(changeImage, 3000); // Change image and description every 3 seconds
+        setInterval(changeImage, 3000);
     </script>
 </body>
 </html>
